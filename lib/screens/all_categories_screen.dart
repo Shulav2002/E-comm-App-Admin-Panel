@@ -35,7 +35,7 @@ class AllCategoriesScreen extends StatelessWidget {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection('categories')
-            // .orderBy('createdAt', descending: true)
+            // created on descending order ma display.
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {

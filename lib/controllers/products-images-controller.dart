@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, unused_field, unused_local_variable, prefer_const_constructors, avoid_print, no_leading_underscores_for_local_identifiers
-
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
@@ -16,18 +14,21 @@ class AddProductImagesController extends GetxController {
   final FirebaseStorage storageRef = FirebaseStorage.instance;
 
   Future<void> showImagesPickerDialog() async {
-    PermissionStatus status;
+    PermissionStatus storageStatus;
+    PermissionStatus cameraStatus;
+
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
 
     if (androidDeviceInfo.version.sdkInt <= 32) {
-      status = await Permission.storage.request();
+      storageStatus = await Permission.storage.request();
+      cameraStatus = await Permission.camera.request();
     } else {
-      status = await Permission.mediaLibrary.request();
+      storageStatus = await Permission.photos.request();
+      cameraStatus = await Permission.camera.request();
     }
 
-    //
-    if (status == PermissionStatus.granted) {
+    if (storageStatus.isGranted && cameraStatus.isGranted) {
       Get.defaultDialog(
         title: "Choose Image",
         middleText: "Pick an image from the camera or gallery?",
@@ -48,14 +49,27 @@ class AddProductImagesController extends GetxController {
           ),
         ],
       );
-    }
-    if (status == PermissionStatus.denied) {
-      print("Error please allow permission for further usage");
-      openAppSettings();
-    }
-    if (status == PermissionStatus.permanentlyDenied) {
-      print("Error please allow permission for further usage");
-      openAppSettings();
+    } else if (storageStatus.isDenied || cameraStatus.isDenied) {
+      Get.snackbar(
+        "Permission Denied",
+        "Error: Please allow permission for further usage",
+        snackPosition: SnackPosition.BOTTOM,
+        duration: Duration(seconds: 3),
+      );
+    } else if (storageStatus.isPermanentlyDenied ||
+        cameraStatus.isPermanentlyDenied) {
+      Get.snackbar(
+        "Permission Permanently Denied",
+        "Error: Permission is permanently denied. Please allow permission from settings",
+        snackPosition: SnackPosition.BOTTOM,
+        duration: Duration(seconds: 3),
+        mainButton: TextButton(
+          onPressed: () {
+            openAppSettings();
+          },
+          child: Text('Settings', style: TextStyle(color: Colors.white)),
+        ),
+      );
     }
   }
 
@@ -90,7 +104,6 @@ class AddProductImagesController extends GetxController {
     update();
   }
 
-  //
   Future<void> uploadFunction(List<XFile> _images) async {
     arrImagesUrl.clear();
     for (int i = 0; i < _images.length; i++) {
@@ -100,7 +113,6 @@ class AddProductImagesController extends GetxController {
     update();
   }
 
-  //
   Future<String> uplaodFile(XFile _image) async {
     TaskSnapshot reference = await storageRef
         .ref()
