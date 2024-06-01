@@ -48,11 +48,11 @@ class CheckSingleOrderScreen extends StatelessWidget {
                   radius: 50.0,
                   foregroundImage: NetworkImage(orderModel.productImages[0]),
                 ),
-              if (orderModel.productImages[1] != null)
-                CircleAvatar(
-                  radius: 50.0,
-                  foregroundImage: NetworkImage(orderModel.productImages[1]),
-                ),
+              // if (orderModel.productImages[1] != null)
+              //   CircleAvatar(
+              //     radius: 50.0,
+              //     foregroundImage: NetworkImage(orderModel.productImages[1]),
+              //   ),
             ],
           ),
           Padding(

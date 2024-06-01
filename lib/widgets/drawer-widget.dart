@@ -98,18 +98,18 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     child: ListTile(
                       titleAlignment: ListTileTitleAlignment.center,
                       title: Text(
-                        "Guest",
+                        "Admin",
                         style: TextStyle(color: AppConstant.appTextColor),
                       ),
-                      subtitle: Text(
-                        AppConstant.appVersion,
-                        style: TextStyle(color: Colors.grey),
-                      ),
+                      // subtitle: Text(
+                      //   AppConstant.appVersion,
+                      //   style: TextStyle(color: Colors.grey),
+                      // ),
                       leading: CircleAvatar(
                         radius: 22.0,
                         backgroundColor: AppConstant.appMainColor,
                         child: Text(
-                          "G",
+                          "A",
                           style: TextStyle(color: AppConstant.appTextColor),
                         ),
                       ),
@@ -119,7 +119,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               indent: 10.0,
               endIndent: 10.0,
               thickness: 1.5,
-              color: Colors.grey,
+              color: Color.fromARGB(255, 116, 114, 114),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -205,66 +205,31 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
               ),
             ),
-            if (user != null)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: ListTile(
-                  titleAlignment: ListTileTitleAlignment.center,
-                  onTap: () {
-                    // Get.back();
-                    // Get.to(() => CustomerReviews());
-                  },
-                  title: Text(
-                    'Customer Reviews',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  leading: Icon(
-                    Icons.reviews_rounded,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ListTile(
-                onTap: () {
-                  // Get.to(() => ContactScreen());
-                },
-                title: Text(
-                  'Contact',
-                  style: TextStyle(color: Colors.white),
-                ),
-                leading: Icon(
-                  Icons.phone,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ListTile(
-                onTap: () async {
-                  // if (user != null) {
-                  //   EasyLoading.show();
-                  //   await FirebaseAuth.instance.signOut();
-                  //   await _googleSignIn.signOut();
-                  //   Get.offAll(() => MainScreen());
-                  //   EasyLoading.dismiss();
-                  // } else {
-                  //   Get.back();
-                  //   await googleSignInController.signInWithGoogle();
-                  // }
-                },
-                title: Text(
-                  user != null ? 'Logout' : 'Login',
-                  style: TextStyle(color: Colors.white),
-                ),
-                leading: Icon(
-                  user != null ? Icons.logout : Icons.login,
-                  color: Colors.white,
-                ),
-              ),
-            )
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            //   child: ListTile(
+            //     onTap: () async {
+            //       // if (user != null) {
+            //       //   EasyLoading.show();
+            //       //   await FirebaseAuth.instance.signOut();
+            //       //   await _googleSignIn.signOut();
+            //       //   Get.offAll(() => MainScreen());
+            //       //   EasyLoading.dismiss();
+            //       // } else {
+            //       //   Get.back();
+            //       //   await googleSignInController.signInWithGoogle();
+            //       // }
+            //     },
+            //     title: Text(
+            //       user != null ? 'Logout' : 'Login',
+            //       style: TextStyle(color: Colors.white),
+            //     ),
+            //     leading: Icon(
+            //       user != null ? Icons.logout : Icons.login,
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            // )
           ],
         ),
         width: Get.width - 80.0,

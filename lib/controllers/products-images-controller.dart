@@ -35,14 +35,14 @@ class AddProductImagesController extends GetxController {
           ElevatedButton(
             onPressed: () {
               Get.back();
-              seletcImages("camera");
+              selectImages("camera");
             },
             child: Text('Camera'),
           ),
           ElevatedButton(
             onPressed: () {
               Get.back();
-              seletcImages("gallery");
+              selectImages("gallery");
             },
             child: Text('Gallery'),
           ),
@@ -59,7 +59,7 @@ class AddProductImagesController extends GetxController {
     }
   }
 
-  Future<void> seletcImages(String type) async {
+  Future<void> selectImages(String type) async {
     List<XFile> imgs = [];
     if (type == 'gallery') {
       try {
