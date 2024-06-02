@@ -63,12 +63,12 @@ class AddProductScreen extends StatelessWidget {
               GetBuilder<AddProductImagesController>(
                 init: AddProductImagesController(),
                 builder: (imageController) {
-                  return imageController.selectedIamges.length > 0
+                  return imageController.selectedImages.length > 0
                       ? Container(
                           width: MediaQuery.of(context).size.width - 20,
                           height: Get.height / 3.0,
                           child: GridView.builder(
-                            itemCount: imageController.selectedIamges.length,
+                            itemCount: imageController.selectedImages.length,
                             physics: const BouncingScrollPhysics(),
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
@@ -81,7 +81,7 @@ class AddProductScreen extends StatelessWidget {
                                 children: [
                                   Image.file(
                                     File(addProductImagesController
-                                        .selectedIamges[index].path),
+                                        .selectedImages[index].path),
                                     fit: BoxFit.cover,
                                     height: Get.height / 4,
                                     width: Get.width / 2,
@@ -93,7 +93,7 @@ class AddProductScreen extends StatelessWidget {
                                       onTap: () {
                                         imageController.removeImages(index);
                                         print(imageController
-                                            .selectedIamges.length);
+                                            .selectedImages.length);
                                       },
                                       child: CircleAvatar(
                                         backgroundColor:
@@ -269,7 +269,7 @@ class AddProductScreen extends StatelessWidget {
                   try {
                     EasyLoading.show();
                     await addProductImagesController.uploadFunction(
-                        addProductImagesController.selectedIamges);
+                        addProductImagesController.selectedImages);
                     print(addProductImagesController.arrImagesUrl);
 
                     String productId = await GenerateIds().generateProductId();

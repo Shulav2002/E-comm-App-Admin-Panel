@@ -56,12 +56,12 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
               GetBuilder<AddProductImagesController>(
                 init: AddProductImagesController(),
                 builder: (imageController) {
-                  return imageController.selectedIamges.length > 0
+                  return imageController.selectedImages.length > 0
                       ? Container(
                           width: MediaQuery.of(context).size.width - 20,
                           height: Get.height / 3.0,
                           child: GridView.builder(
-                            itemCount: imageController.selectedIamges.length,
+                            itemCount: imageController.selectedImages.length,
                             physics: const BouncingScrollPhysics(),
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
@@ -74,7 +74,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                                 children: [
                                   Image.file(
                                     File(addProductImagesController
-                                        .selectedIamges[index].path),
+                                        .selectedImages[index].path),
                                     fit: BoxFit.cover,
                                     height: Get.height / 4,
                                     width: Get.width / 2,
@@ -86,7 +86,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                                       onTap: () {
                                         imageController.removeImages(index);
                                         print(imageController
-                                            .selectedIamges.length);
+                                            .selectedImages.length);
                                       },
                                       child: const CircleAvatar(
                                         backgroundColor:
@@ -134,7 +134,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                 onPressed: () async {
                   EasyLoading.show();
                   await addProductImagesController.uploadFunction(
-                      addProductImagesController.selectedIamges);
+                      addProductImagesController.selectedImages);
                   String categoryId = await GenerateIds().generateCategoryId();
 
                   CategoriesModel categoriesModel = CategoriesModel(

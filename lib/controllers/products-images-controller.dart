@@ -9,7 +9,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class AddProductImagesController extends GetxController {
   final ImagePicker _picker = ImagePicker();
-  RxList<XFile> selectedIamges = <XFile>[].obs;
+  RxList<XFile> selectedImages = <XFile>[].obs;
   final RxList<String> arrImagesUrl = <String>[].obs;
   final FirebaseStorage storageRef = FirebaseStorage.instance;
 
@@ -93,14 +93,14 @@ class AddProductImagesController extends GetxController {
     }
 
     if (imgs.isNotEmpty) {
-      selectedIamges.addAll(imgs);
+      selectedImages.addAll(imgs);
       update();
-      print(selectedIamges.length);
+      print(selectedImages.length);
     }
   }
 
   void removeImages(int index) {
-    selectedIamges.removeAt(index);
+    selectedImages.removeAt(index);
     update();
   }
 

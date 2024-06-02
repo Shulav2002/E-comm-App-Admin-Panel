@@ -101,15 +101,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         "Admin",
                         style: TextStyle(color: AppConstant.appTextColor),
                       ),
-                      // subtitle: Text(
-                      //   AppConstant.appVersion,
-                      //   style: TextStyle(color: Colors.grey),
-                      // ),
                       leading: CircleAvatar(
                         radius: 22.0,
                         backgroundColor: AppConstant.appMainColor,
                         child: Text(
-                          "A",
+                          "S",
                           style: TextStyle(color: AppConstant.appTextColor),
                         ),
                       ),
@@ -119,7 +115,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               indent: 10.0,
               endIndent: 10.0,
               thickness: 1.5,
-              color: Color.fromARGB(255, 116, 114, 114),
+              color: Color.fromARGB(255, 177, 0, 0),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -205,31 +201,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            //   child: ListTile(
-            //     onTap: () async {
-            //       // if (user != null) {
-            //       //   EasyLoading.show();
-            //       //   await FirebaseAuth.instance.signOut();
-            //       //   await _googleSignIn.signOut();
-            //       //   Get.offAll(() => MainScreen());
-            //       //   EasyLoading.dismiss();
-            //       // } else {
-            //       //   Get.back();
-            //       //   await googleSignInController.signInWithGoogle();
-            //       // }
-            //     },
-            //     title: Text(
-            //       user != null ? 'Logout' : 'Login',
-            //       style: TextStyle(color: Colors.white),
-            //     ),
-            //     leading: Icon(
-            //       user != null ? Icons.logout : Icons.login,
-            //       color: Colors.white,
-            //     ),
-            //   ),
-            // )
           ],
         ),
         width: Get.width - 80.0,
@@ -238,20 +209,4 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       ),
     );
   }
-
-  // send whatsapp message
-  // static Future<void> sendMessage() async {
-  //   final phoneNumber = AppConstant.whatsAppNumber;
-  //   final message =
-  //       "Hello *${AppConstant.appMainName}*"; // Replace with your message
-
-  //   final url =
-  //       'https://wa.me/$phoneNumber?text=${Uri.encodeComponent(message)}';
-
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
 }
