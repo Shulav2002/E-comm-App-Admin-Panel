@@ -8,7 +8,7 @@ class AppConstant {
   static String appVersion = '1.0.1';
 
   static const appMainColor = Color.fromARGB(255, 87, 87, 87);
-  static const appScendoryColor = Color.fromARGB(255, 23, 73, 36);
+  static const appScendoryColor = Color.fromARGB(255, 27, 27, 27);
   static const appTextColor = Color(0xFFFBF5F4);
   static const appStatusBarColor = Color(0xFFFBF5F4);
 }
