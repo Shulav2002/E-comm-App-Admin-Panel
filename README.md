@@ -1,16 +1,21 @@
-# admin_panel
+The admin dashboard for managing the e-commerce store. Built with Flutter (Dart), it allows admins to manage products, categories, orders, and users — all synced with Firebase.
 
-A new Flutter project.
+✨ Features
 
-## Getting Started
+📦 Product Management (add, update, delete) with Firebase Storage for images
 
-This project is a starting point for a Flutter application.
+📂 Category Management
 
-A few resources to get you started if this is your first Flutter project:
+👥 User Management (via Firebase Auth)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+📑 Order Management (view, update status, cancel, refund tracking)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+📊 Sales Analytics from Firestore data
+
+🔐 Secure Admin Login
+
+🚀 Tech Stack
+
+Frontend: Flutter (Dart)
+
+Backend & Database: Firebase (Auth, Firestore, Storage)
